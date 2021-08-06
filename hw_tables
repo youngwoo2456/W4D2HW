@@ -1,0 +1,72 @@
+--customer table
+CREATE TABLE customer (
+	customer_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(25),
+	last_name VARCHAR(25)
+);
+
+--ticket table
+CREATE TABLE Ticket (
+	ticket_id SERIAL PRIMARY KEY,
+	number_tickets INTEGER,
+	total_amount NUMERIC(8,2),
+	payment_method VARCHAR(50),
+	customer_id INTEGER NOT NULL,
+	FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+  --FOREIGN KEY (`ticket_id`) REFERENCES `Movie`(`concession_id`),
+  --KEY `Primary Key` (`ticket_id`),
+
+);
+
+--create movie table
+CREATE TABLE Movie (
+	movie_id SERIAL PRIMARY KEY,
+	price  NUMERIC(8,2),
+	movie_name VARCHAR(50),
+	movie_rating VARCHAR(20),
+	movie_review NUMERIC(1,1),
+	ticket_id INTEGER NOT NULL,
+	FOREIGN KEY(ticket_id) REFERENCES Ticket(ticket_id)
+  --KEY `Primary Key` (`movie_id`),
+  --KEY `Foreign Key` (`concession_id`)
+);
+
+--concession table
+CREATE TABLE Concession (
+	concession_id SERIAL PRIMARY KEY,
+	item_sold VARCHAR(50),
+	item_price NUMERIC(8,2)
+);
+
+
+--customer_concession join table
+CREATE TABLE customer_concession(
+	customer_concession_id SERIAL PRIMARY KEY,
+	customer_id INTEGER NOT NULL,
+	concession_id INTEGER NOT NULL,
+	FOREIGN KEY(customer_id) REFERENCES Customer(customer_id),
+	FOREIGN KEY(concession_id) REFERENCES Concession(concession_id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `customer_concession` (
+  `customer_concession_id` SERIAL,
+  `customer_id` INTEGER,
+  `concession_id` INTEGER ,
+  FOREIGN KEY (`customer_id`) REFERENCES `Customer`(`customer_id`),
+  FOREIGN KEY (`concession_id`) REFERENCES `Concession`(`concession_id`),
+  KEY `Primary Key` (`customer_concession_id`),
+  KEY `Foregin Key` (`customer_id`),
+  KEY `Foreign Key` (`concession_id`)
+);
+

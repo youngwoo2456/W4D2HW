@@ -1,0 +1,95 @@
+SELECT * 
+FROM customer;
+
+--insert to customer 
+INSERT INTO Customer(
+	first_name,
+	last_name
+)
+VALUES('Young', 'Choi'),('Youngin', 'Choi');
+
+INSERT INTO Customer(
+	first_name, last_name
+)
+VALUES('Jake', 'Smith'), ('Kobe', 'Bryant')
+	
+--insert into ticket
+INSERT INTO Ticket(
+	number_tickets,
+	total_amount,
+	payment_method,
+	customer_id
+)
+VALUES (
+	3,
+	36.99,
+	'MasterCard',
+	1
+),
+(
+	2,
+	24.99,
+	'Visa',
+	1
+),
+(
+	1,
+	12.99,
+	'Discover',
+	2
+);
+
+SELECT *
+FROM ticket
+
+-- inserting into movie table
+SELECT *
+FROM movie
+
+INSERT INTO Movie(
+	price,
+	movie_name,
+	movie_rating,
+	movie_review,
+	ticket_id
+)
+VALUES (12.99, 'The Dark Knight', 'Great!', 4.5, 5),
+(12.99, 'Avengers', 'Great!', 5, 6),
+(12.99, 'Spider Man', 'Good!', 4, 7);
+
+-- concession table
+INSERT INTO Concession(
+	item_sold,
+	item_price
+)
+VALUES ('Ice Cream', 2.99), ('Coke', 1.99), ('Popcorn', 5.99), ('Nachos', 6.99);
+
+SELECT *
+FROM concession
+
+-- insert into cusotmer_concession
+INSERT INTO customer_concession(
+	customer_id,
+	concession_id
+)
+VALUES (1,1),(2,2);
+
+SELECT *
+FROM customer_concession
+
+-- note format on spacing slightly different to see what looks neater etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
